@@ -1,0 +1,14 @@
+# The main pipeline for source_controlled
+
+resources:
+  pipelines:
+    source_controlled_etl:
+      name: source_controlled_etl
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "."
+
+      libraries:
+        - glob:
+            include: transformations/**
